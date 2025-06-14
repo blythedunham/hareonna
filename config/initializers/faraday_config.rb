@@ -15,3 +15,8 @@ Faraday.default_connection_options = {
     # 'Accept' => 'application/json'
   }
 }
+
+if Rails.env.test?
+  Rails.application.credentials.api_keys = ActiveSupport::OrderedOptions.new
+  Rails.application.credentials.api_keys.visual_crossing = "FAKE_API_KEY"
+end
