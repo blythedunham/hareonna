@@ -1,0 +1,11 @@
+<div class="weather-top">
+  <div class="weather-header">
+    <h1>Weather by Hareonna</h1>
+  </div>
+  <div class="weather-search">
+    <%= form_with url: weather_forecasts_path, method: :get do |form| %>
+      <%= form.text_field :location, value: @location, placeholder: "Address, City, or Zip Code" %>
+      <%= form.submit "Search" %>
+    <% end %>
+  </div>
+</div>

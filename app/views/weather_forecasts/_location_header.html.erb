@@ -1,0 +1,13 @@
+<div class="location-header">
+  <h1 class="location">Forecast for <%= @location %></h2>
+  <div class="cached-info">
+    <% if weather_forecast.reported_at %>
+      <div class="cached">
+        <span>Reported at: <%= weather_forecast.reported_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+        <% if weather_forecast.cached_result %>
+          <span class="cached-result">(Cached Result)</span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

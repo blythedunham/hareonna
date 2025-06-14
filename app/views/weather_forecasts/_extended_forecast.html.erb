@@ -1,0 +1,21 @@
+<div class="extended-forecast table">
+  <h2>Extended Forecast</h2>
+  <% weather_forecast.extended_forecast.each do |day| %>
+    <div class="forecast-day row">
+      <div class="date-cell cell">
+        <span class="dow"><%= dow(day.date_time) %> </span>
+        <span class="date"><%= day.date_time.strftime("%_m/%d") %></span>
+      </div>
+      <span class="cell"><%= weather_icon(day.tag) %></span>
+      <span class ="cell">
+        <span class="t-hi" ><%= temperature(day.temperature_high) %></span>
+        <span class="t-lo"><%= temperature(day.temperature_low) %></span>
+      </span>
+      <span class="cell">
+        <span class="precip-lbl">Precip&nbsp;</span>
+        <span class="precip"><%= "#{day.precip}%" %></span>
+      </span>
+      <span class="desc"><%= day.description %> </span>
+    </div>
+  <% end %>
+</div>

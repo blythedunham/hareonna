@@ -1,0 +1,282 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+
+:root {
+    --primary-color: black;
+    --secondary-color: #3f3f3f;
+    --background-color: lightblue;
+    --text-color: #333;
+    --font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: var(--font-family)
+}
+
+.notices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+
+    .flash-message {
+        color: #cc0033;
+        background-color: #fce4e4;
+        border: 0.2em solid #fcc2c3;
+        padding: 1em;
+        margin-bottom: 1em;
+        border-radius: 1em;
+        font-weight: bold;
+    }
+
+    .notice {
+        color: #006600;
+        background-color: #9de3c0;
+        border: 0.2em solid #48ac7a;
+    }
+}
+
+.hareonna-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .hareonna-image {
+        width: 50%;
+        border-radius: 0.8em;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .hareonna-description {
+        text-align: center;
+        font-size: x-large;
+        color: var(--text-color);
+        margin: 1em;
+    }
+
+    .attribution {
+        font-size: x-small;
+        text-align: center;
+        margin: 1em;
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+    }
+
+}
+
+.weather-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left;
+    padding: 0.5em;
+    border-bottom: 0.2em solid #ccc;
+    background-color: lightgrey;
+    border-radius: 0.8em;
+
+    input {
+        padding: 0.67em;
+        font-size: 1em;
+        border: 0.2em solid #ccc;
+        border-radius: 0.8em;
+    }
+
+    form {
+        padding: 1em 0.67em 0 0;
+    }
+}
+
+.location {
+    color: black;
+}
+
+.location-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5em;
+
+    .cached {
+        margin: 0;
+        padding: 0;
+        font-size: 0.8em;
+        color: --var(--secondary-color);
+    }
+}
+
+
+.current-weather {
+    display: flex;
+    flex-direction: row;
+
+    .graphics {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1em 1em;
+        width: 50%;
+    }
+
+    .temperature {
+        font-size: 4em;
+        align-items: center;
+    }
+
+    .weather-icon {
+        width: 9em;
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        margin: 1em;
+        justify-content: space-around;
+    }
+
+    .small-detail {
+        margin: 0.2em 0;
+        color: --var(--secondary-color);
+    }
+
+    .description {
+        margin: 0.2em 0;
+    }
+}
+
+
+
+.extended-forecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .t-hi {
+        font-size: x-large;
+        margin-right: 1px;
+    }
+
+    .t-lo {
+        font-size: medium;
+        color: --var(--secondary-color);
+    }
+
+    .precip {
+        font-size: large;
+        margin-right: 1px;
+    }
+
+    .precip-lbl {
+        color: --var(--secondary-color);
+        font-size: small;
+    }
+
+    .weather-icon {
+        width: 3em;
+    }
+
+    .table {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .date-cell {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cell {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        width: 10%;
+        justify-content: center;
+    }
+
+    .desc {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        width: 50%;
+        justify-content: flex-start;
+    }
+
+    .row {
+        flex-direction: row;
+        display: flex;
+        margin: 1em;
+        justify-content: space-around;
+    }
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+    .row {
+        /* When on medium sized screens, we center it by evenly distributing empty space around items */
+        justify-content: space-around;
+    }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+
+    .weather-top {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .current-weather {
+        display: flex;
+        flex-direction: column;
+
+        .graphics {
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            margin: 0 1em;
+        }
+    }
+
+    .row {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .cell {
+
+        width: 100%;
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+
+    .dayy {
+        flex-direction: row;
+        width: 100%;
+        margin: 1px
+    }
+
+    .desc {
+        width: 100%;
+        justify-content: left;
+    }
+
+    .dow {
+        padding-right: 1em
+    }
+}

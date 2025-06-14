@@ -1,0 +1,17 @@
+<div class = "current-conditions">
+  <h2>Current Conditions</h2>
+  <div class="current-weather">
+    <div class="graphics">
+      <div >
+        <%= current_weather_icon(weather_forecast.current.tag) %>
+      </div>
+    </div>
+    <div class="details">
+      <span class="temperature"><%= weather_forecast.current.temperature %> &deg;F</span>
+      <span class="small-detail">Feels like: <%= weather_forecast.current.feels_like_temp %> &deg;F</span>
+      <span class="small-detail">Humidity: <%= weather_forecast.current.humidity %>%</span>
+      <span class="small-detail">Wind: <%= weather_forecast.current.wind_speed %> mph</span>
+      <span class="description"> <%= weather_forecast.description %></span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<% if @weather_forecast %>
+  <div class="weather-report">
+    <%= render 'weather_forecasts/location_header', weather_forecast:@weather_forecast, location: @location  %>
+    <%= render 'weather_forecasts/current_conditions', weather_forecast: @weather_forecast %>
+    <%= render 'weather_forecasts/extended_forecast', weather_forecast: @weather_forecast %>
+  </div>
+<% end %>
