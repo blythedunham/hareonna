@@ -3,36 +3,6 @@
 A hare-onna (晴れ女) is a lucky, sunny lady who brings good weather whereever she goes. This project uses the [Visual Crossing API](https://www.visualcrossing.com/) to show the current weather and day forecast for any address, city or zipcode. It caches with `Rails.cache` if a zip is provided. Hopefully, using it will bring good luck and sunshine.
 
 
-- Ruby 3.4.4
-- Rails 8.0.2
-
-`bundle install`
-`bundle exec rspec`
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
 # About
 In short, the implementation prioritized ease of use for the user inputing any location text. The visual crossing api was selected because it avoids the overhead of a second API call to geocode a location into lat/lng coordinates in order to get the weather (new Google weather, weather.gov, etc). It also returns both the current weather and day by day forecast in one payload. The Faraday Gem is used for the API calls.
 
@@ -47,6 +17,7 @@ Standard issue Rails controllers, views, etc are used (as I ran out of time to b
 ### Models
 * `WeatherForecast` - `ActiveModel` (not DB persisted) storing weather data for use by FE. 
 * `PointForecast` - a subclass of `WeatherForecast` with the current weather or that for a specific time period.
+* `SearchLocation` - used for server side validation of user inputted location
 
 ### Services
 * `WeatherForecastService` - main service for making the api call, caching, parsing and returning Weather objects
@@ -60,3 +31,37 @@ Standard issue Rails controllers, views, etc are used (as I ran out of time to b
 
 ### Controllers
 * `WeatherForecastController` - main controller
+
+
+# Install and Run
+
+This project uses:
+- Ruby 3.4.4
+- Rails 8.0.2
+
+After installing Ruby 3.4.4 (recommed [rvm](https://rvm.io/) or rbenv)
+```
+gem install bundler
+bundle install
+```    
+
+Run the server and go to http://localhost:3000/
+```
+bundle exec rails server
+```
+
+
+Run tests:
+```
+bundle exec rspec
+```
+
+
+## Notes
+* There is no need for RDS at this time as no data is persisted but SQLite was installed by default. I would
+normally use POSTGRES.
+* Rails cache uses default (would normally use Redis) 
+* The Faraday gem is used for the API calls
+
+
+# Preview
